@@ -1,14 +1,4 @@
-##################################################################################
-
-Study Plan Generator
-Author:	Luca Falsina
-Date: 	15/09/2014
-
-##################################################################################
-
-##################################################################################
 1. INTRODUCTION
-##################################################################################
 The aim of this collection of files is helping students from the Master
 degree in "Engineering of Computing Systems" A.A. 2014/2015
 in picking the best suitable courses to add to their study plan. 
@@ -28,9 +18,8 @@ suggested result with the official degree program is strongly encouraged!
 (especially since timetables of the different courses are not evaluated by
 this model and so lessons from the resulting picked courses may overlap).
 
-##################################################################################
+
 2. FEATURES
-##################################################################################
 After having properly set the data file (see section 3.) this program is 
 able to generate and store in a .txt file an optimal study plan that fulfills
 all the constraints and your personal interests. In particular you can set:
@@ -51,30 +40,29 @@ two parameters]
 - And finally the minimum and maximum amount of credits for each courses group
 (i.e. I need at least 15 CFU from INT1 and at most 5 CFU from DOT table..)
 
-##################################################################################
+
 3. SETUP
-##################################################################################
 In order to make the system work you'll need to have installed on your 
 machine the Python interpreter, AMPL and the solver lpsolve, plus performing
 a bit of configuration on the data file to set your choices and needs.
 This is a straightforward guide for Linux (Ubuntu) users but it should not
 be that hard to adapt these steps for Windows users as well..
 
-1. Install or check for Python interpreter availability.
+a. Install or check for Python interpreter availability.
 	In a terminal (Ctrl + Alt + T) digit "sudo apt-get install python2.7" 
 	and press "Enter". Insert your system admin password and then "Enter"
 	again. If the packet needs to be installed, type "Y" and press "Enter"
-	again; otherwise just move to step 2.
+	again; otherwise just move to step b.
 
-2. Install the tabulate module for Python
+b. Install the tabulate module for Python
 	In the terminal type "sudo pip install tabulate".
 
-3. Check results
+c. Check results
 	In the terminal digit "pyton2.7", then when the interpreter is loaded
 	type "from tabulate import tabulate". If no error message is shown, 
 	everything went smooth. Press "Ctrl + D" to exit.
 
-4. Retrieve AMPL executable and the solver lpsolve
+d. Retrieve AMPL executable and the solver lpsolve
 	Check from the AMPL guidelines in the website 
 	(http://www.ampl.com/DOWNLOADS/details.html) how to download and
 	set up both AMPL and its solver lpsolve. A fine idea here for Linux
@@ -82,7 +70,7 @@ be that hard to adapt these steps for Windows users as well..
 	folder such that these programs can be always launched from the
 	terminal without caring about the folder location.
 
-5. Configure the data file according to your preferences
+e. Configure the data file according to your preferences
 	In the current dir you can see a file called 
 	"study_plan_standard_eng_computing_systems.dat". Here all preferences 
 	and constraints can be set. This file is already filled with values
@@ -97,14 +85,14 @@ be that hard to adapt these steps for Windows users as well..
 	to modify the parameters and sometimes also an example of use, so
 	I refer you to give a look directly at that .dat file :)
 
-6. Enable constraint for only English-taught exams (for not-Italian speakers)
+f. Enable constraint for only English-taught exams (for not-Italian speakers)
 	By default the study plan generator will pick both courses that are
 	taught in English and in Italian. Foreign students may prefer to insert
 	only English taught courses. If this is the case, you have simply to uncomment
 	this constraint by removing the # character at the beginning of the last
 	line in the file "study_plan.mod" and then saving the updated version of the file.
 
-7. Generate your study plan
+g. Generate your study plan
 	Finally it's time to generate your study plan :)
 	To do so in a terminal reach this folder by typing
 	"cd <your path to this folder>/StudyPlanGenerator".
@@ -113,21 +101,18 @@ be that hard to adapt these steps for Windows users as well..
 	constraints, your study plan is now saved in a table-like 
 	format into the file "MyStudyPlan.txt".
 	
-	Please notice that if in step 5. you have created and edited
+	Please notice that if in step e. you have created and edited
 	a copy of the data file whose name is no longer the one of the 
 	previous version, before generating the study plan you will 
 	have to update the line "data" in file "study_plan.run" with 
 	the new name of the .dat file.
 
 
-##################################################################################
+
 4. GREETINGS
-##################################################################################
 That should be enough to start playing with the study plan generator.
 If the resulting study plan do not satisfy you completely, you may play 
 around and tune the different parameters (especially the liking one) 
 till you reach a satisfying result :)
 I hope you, students as I am, will appreciate this effort and won't hesitate
 to contact me for any kind of suggestion..
-Greetings and thanks for reading,
-Luca
