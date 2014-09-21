@@ -1,0 +1,342 @@
+# Standard study plan data for the study plan model.
+# For more details on the parameters check the related 
+# description in this file and possibly also file study_plan.mod
+# Author: Luca Falsina
+
+data;
+
+# SETS
+# Courses codes in set I
+set I := 
+088983 089182 089183 089184 088949 089165 095898 # Mandatory courses 
+090914 093060 096129 093062 090916 090915 088869 # AUT Table
+085813 096281 096260 # BIO Table
+080931 089154 088745 089180 089194 091021 088877 060001 085900 089234 088767 088782 085782 # INT1 TABLE
+095901 089235 089174 089010 085901 088805 090940 088804 085899 # INT2 TABLE
+088976 089076 089187 # MAT TABLE
+095903 089214 090950 095905 089216 089202 # TABA Table (1 sem)
+091023 090874 095941 095940 088882 089185 095943 089181 # TABA Table (2 sem)
+094744 094746 089169 095944 090945 094743 093212 093216 095945 089166 090931 089175 # TABB Table (1 sem)
+095946 090957 091316 090958 095947 089167 090955 089318 089012 093206 090952 090951 095948 089013 093217 # TABB Table (2 sem)
+093269 093735 089073 089043 091036 091034 091035 # TEL Table
+093547 092100 087970 087971 090750 090751 084966 077685 093544 093548 077803 093546 093545 # DOT Table
+;
+
+# Tables of courses in set J
+set J := AUT BIO DOT INT1 INT2 MAT TABA TABB TEL;
+
+# PARAMS
+param CR_MIN := 100; # Number of credits required to get the degree (Thesis credits are left out)
+param CR_MAX := 100; # Maximum number of credits that can be selected by a student (Thesis credits are left out) -> Maximum from Degree Program: 140
+
+param CR_MIN_SEM1 := 60; # Minimum number of credits that should be selected by the student during the first semesters
+param CR_MAX_SEM1 := 80; # Maximum number of credits that should be selected by the student during the first semesters
+
+param CR_MIN_SEM2 := 40; # Minimum number of credits that should be selected by the student during the second semesters
+param CR_MAX_SEM2 := 60; # Maximum number of credits that should be selected by the student during the second semesters
+
+# On the rows the different groups are shown, while each column represents
+# the minimum number and the maximum number of credits that can be picked 
+# for each course group.
+# (i.e. Group INT1 in the current implementation requires a minimum of 15
+# credits and has a maximum number of credits equals to 100)
+param:	cr_min_table	cr_max_table :=
+AUT	0		100
+BIO	0		100
+DOT	0		5
+INT1	15		100
+INT2	0		100
+MAT	0		100
+TABA	45		100
+TABB	10		100
+TEL	0		100
+;
+
+#####################################################################################
+# This is the KEY PART of the table that you are interested in modifying!!!
+# Each row represents a different course identified by its numeric code.
+# You are required to modify the first three parameters in each column 
+# depending on your choices and situation:
+# 1. First column (liking): this number represents how much you would like to 
+#	take that course and you can select an integer value between 1 [Not at all] and
+#	5 [I would love to take that course], while the default value is 3[It's ok..]. 
+#	Please try to differentiate courses liking (This is the most important step 
+#	cause if you set 5 for thousands of courses, you will never be able to have 
+#	all of them in your study plan so give scores wisely!).
+# 2. Second column (mandatory): set this parameter to 1 if the course of this 
+#	row is mandatory for you; 0 otherwise.
+# 3. Third column (forbidden): set this parameter to 1 if the course of this 
+#	row is forbidden for you; 0 otherwise.
+#
+# The last three columns are explained here but you should NOT need to MODIFY them
+# 4. Fourth column (english): this parameter is set to 1 if the course of this 
+#	row is taught in English; 0 otherwise.
+# 5. Fifth column (cr): this parameter represents the number of credits obtained
+#	after having passed the exam of this course.
+# 6. Sixth column (1_sem): this parameter is set to 1 if the course of this 
+#	row is held during the 1st semester; 0 if it its lessons come in the 2nd.
+#
+#	i.e. The third line currently says that the "Data Bases 2" course, whose code
+#	is 089183, is not one of my favorites or neither one of the worst for me since
+# 	it has a score of 3. Moreover this course is not forbidden for my study plan
+#	but actually it's mandatory. Moreover the table also states that "Data Bases 2"
+#	is a 5-credit course taught in English and held during the first semester of
+#	the current academic year. 
+#####################################################################################
+param:	liking	mandatory	forbidden	english		cr	1_sem :=	# NAME COURSE
+088983	3	1		0		1		5	1		# Foundations of operations research
+089182	3	1		0		1		5	1		# Formal languages and compilers
+089183	3	1		0		1		5	1		# Data Bases 2
+089184	3	1		0		1		5	1		# Software Engineering 2
+088949	3	1		0		1		5	0		# Advanced Computer Architectures
+089165	3	1		0		1		5	0		# Computer security
+095898	3	1		0		1		5	0		# Computing infrastructures
+
+# AUT Table
+090914	3	0		0		1		5	1		# Control of industrial robots
+093060	3	0		0		1		5	1		# Safety in automation systems
+096129	3	0		0		1		10	0		# Advanced and multivariable control
+093062	3	0		0		1		5	0		# Automation and control in vehicles
+090916	3	0		0		1		5	0		# Automation of energy systems
+090915	3	0		0		1		5	0		# Production systems control
+088869	3	0		0		0		5	0		# Tecniche e strumenti di simulazione
+
+# BIO Table
+085813 	3	0		0		0		10	1		# Metodi e applicazioni di sanità digitale
+096281	3	0		0		1		10	0		# Biomedical signal processing and medical images
+096260	3	0		0		1		10	0		# Technologies for sensors and clinical instrumentation
+
+# INT1 Table
+080931	3	0		0		1		5	1		# Algebra and mathematical logic
+089154	3	0		0		1		5	1		# Calcolo scientifico per l'informatica
+088745	3	0		0		1		10	1		# Model identification and data analysis
+089180	3	0		0		1		5	1		# Numerical analysis
+089194	3	0		0		0		5	1		# Complessità nei sistemi e nelle reti
+091021	3	0		0		0		5	1		# Logica e algebra 2
+088877	3	0		0		0		5	1		# Teoria dei sistemi (dinamica non lineare)
+060001 	3	0		0		0		10	0		# Biologia e fisiologia
+085900	3	0		0		0		5	0		# Chimica Generale
+089234	3	0		0		0		10	0		# Identificazione dei modelli e analisi dei dati
+088767	3	0		0		0		5	0		# Identificazione dei modelli e analisi dei dati 1
+088782	3	0		0		0		5	0		# Metodi matematici per l'ingegneria
+085782	3	0		0		0		10	0		# Segnali per le telecomunicazioni
+
+# INT2 Table
+095901	3	0		0		1		5	1		# ICT for control systems engineering
+089235	3	0		0		0		5	1		# Deontologia ed etica delle tecnologie dell'informazione
+089174	3	0		0		0		5	1		# Economia dei servizi e delle reti 1
+089010	3	0		0		0		5	1		# Sistemi di acquisizione dati
+085901	3	0		0		0		5	0		# Automazione industriale
+088805	3	0		0		0		5	0		# Fisica tecnica
+090940	3	0		0		0		5	0		# Informatica e diritto
+088804	3	0		0		0		5	0		# Meccanica (per ing. informatica)
+085899	3	0		0		0		5	0		# Misure
+
+# MAT Table
+088976	3	0		0		1		5	1		# Game Theory
+089076	3	0		0		0		5	0		# Complementi di ricerca operativa
+089187	3	0		0		0		5	0		# Ottimizzazione discreta
+
+# TABA Table
+095903	3	0		0		1		5	1		# Advanced operating systems
+089214	3	0		0		1		5	1		# Artificial intelligence
+090950	3	0		0		1		5	1		# Distributed systems
+095905	3	0		0		1		5	1		# Embedded systems 1
+089216	3	0		0		1		5	1		# Soft computing
+089202	3	0		0		1		5	1		# Technologies for information systems
+091023	3	0		0		1		5	0		# Business information systems 1
+090874	3	0		0		1		5	0		# Business information systems 2
+095941	3	0		0		1		5	0		# Digital systems design methodologies 1
+095940	3	0		0		1		5	0		# Digital systems design methodologies 2
+088882	3	0		0		1		5	0		# Formal methods for concurrent and real-time systems (UIC 545)
+089185	3	0		0		1		5	0		# High performance processors and systems (UIC 569)
+095943	3	0		0		1		5	0		# Principles of programming languages
+089181	3	0		0		1		5	0		# Theoretical computer science
+
+# TABB Table
+094744	3	0		0		1		5	1		# Advanced user interfaces: interaction
+094746	3	0		0		1		5	1		# Advanced user interfaces: technology
+089169	3	0		0		1		5	1		# Autonomous agents and multiagent systems
+095944	3	0		0		1		5	1		# Bioinformatics and computational biology
+090945	3	0		0		1		5	1		# Computer systems performance evaluation
+094743	3	0		0		1		5	1		# Data management for the web
+093212	3	0		0		1		5	1		# Design and implementation of mobile applications
+093216	3	0		0		1		5	1		# Distributed software development
+095945	3	0		0		1		5	1		# ICT for health care
+089166	3	0		0		1		5	1		# Image analysis
+090931	3	0		0		1		5	1		# Middleware technologies for distributed systems
+089175	3	0		0		1		5	1		# Videogame design and programming
+095946	3	0		0		1		5	0		# Advanced algorithms and parallel programming
+090957	3	0		0		1		5	0		# Code transformation and optimization
+091316	3	0		0		1		5	0		# Cognitive robotics
+090958	3	0		0		1		5	0		# Computer graphics
+095947	3	0		0		1		5	0		# Cryptography and architectures for computer security
+089167	3	0		0		1		5	0		# Data mining and text mining (UIC 583)
+090955	3	0		0		1		5	0		# Dependable systems
+089318	3	0		0		1		5	0		# Hypermedia applications (web and multimedia)
+089012	3	0		0		1		5	0		# Knowledge engineering
+093206	3	0		0		1		5	0		# Multidisciplinary project
+090952	3	0		0		1		5	0		# Pervasive data management
+090951	3	0		0		1		5	0		# Philosophical issues of computer science
+095948	3	0		0		1		5	0		# Process and service design
+089013	3	0		0		1		5	0		# Robotics (5 CFU)
+093217	3	0		0		1		5	0		# Robotics and design
+
+# TEL Table
+093269	3	0		0		1		5	1		# Discrete mathematics
+093735	3	0		0		1		5	1		# Graph optimization
+089073	3	0		0		1		5	0		# Internet of things
+089043	3	0		0		1		10	0		# Wireless networks
+091036	3	0		0		1		5	0		# Multimedia internet applications
+091034	3	0		0		1		5	0		# Wireless internet
+091035	3	0		0		1		10	0		# Multimedia internet
+
+# DOT Table
+# Notice that doctoral seems forbidden this year for incoming students.
+# If this is not true and you want to consider them remember to set forbidden
+# field to 0!
+093547	3	0		1		1		5	0		# Advanced information systems
+092100	3	0		1		1		5	0		# Advanced topics in computer security
+087970	3	0		1		1		5	0		# Algorithmic game theory
+087971	3	0		1		1		5	0		# Automata theory, program analysis and model checking
+090750	3	0		1		1		5	0		# Cloud computing from a software engineering perspective
+090751	3	0		1		1		5	0		# From reconfigurable hardware to self-adaptive computer architectures
+084966	3	0		1		1		5	0		# Genetic algorithms and other evolutionary techniques
+077685	3	0		1		1		5	0		# Intelligent multiagents systems
+093544	3	0		1		1		5	0		# Introduction to mobile application development
+093548	3	0		1		1		5	0		# Modeling time in computing
+077803	3	0		1		1		5	0		# Recommender systems
+093546	3	0		1		1		5	0		# Self-adaptive software systems
+093545	3	0		1		1		5	0		# Stream and complex event processing
+;
+
+#####################################################################################
+# You probably won't need to modify this section of the configuration file!
+# But just in case this table links each course with one and only one of
+# the groups.
+# i.e. Foundations of operations research, whose code is 088983, belongs to
+# the group INT1 and not the others.
+#####################################################################################
+param belongs_to:	AUT	BIO	DOT	INT1	INT2	MAT	TABA	TABB	TEL :=	# NAME COURSE
+088983			0	0	0	1	0	0	0	0	0	# Foundations of operations research
+089182			0	0	0	0	0	0	1	0	0	# Formal languages and compilers
+089183			0	0	0	0	0	0	1	0	0	# Data Bases 2
+089184			0	0	0	0	0	0	1	0	0	# Software Engineering 2
+088949			0	0	0	0	0	0	1	0	0	# Advanced Computer Architectures
+089165			0	0	0	0	0	0	1	0	0	# Computer security
+095898			0	0	0	0	0	0	1	0	0	# Computing infrastructures
+
+# AUT Table
+090914			1	0	0	0	0	0	0	0	0	# Control of industrial robots
+093060			1	0	0	0	0	0	0	0	0	# Safety in automation systems
+096129			1	0	0	0	0	0	0	0	0	# Advanced and multivariable control
+093062			1	0	0	0	0	0	0	0	0	# Automation and control in vehicles
+090916			1	0	0	0	0	0	0	0	0	# Automation of energy systems
+090915			1	0	0	0	0	0	0	0	0	# Production systems control
+088869			1	0	0	0	0	0	0	0	0	# Tecniche e strumenti di simulazione
+
+# BIO Table
+085813			0	1	0	0	0	0	0	0	0	# Metodi e applicazioni di sanità digitale
+096281			0	1	0	0	0	0	0	0	0	# Biomedical signal processing and medical images
+096260			0	1	0	0	0	0	0	0	0	# Technologies for sensors and clinical instrumentation
+
+# INT1 Table
+080931			0	0	0	1	0	0	0	0	0	# Algebra and mathematical logic
+089154			0	0	0	1	0	0	0	0	0	# Calcolo scientifico per l'informatica
+088745			0	0	0	1	0	0	0	0	0	# Model identification and data analysis
+089180			0	0	0	1	0	0	0	0	0	# Numerical analysis
+089194			0	0	0	1	0	0	0	0	0	# Complessità nei sistemi e nelle reti
+091021			0	0	0	1	0	0	0	0	0	# Logica e algebra 2
+088877			0	0	0	1	0	0	0	0	0	# Teoria dei sistemi (dinamica non lineare)
+060001			0	0	0	1	0	0	0	0	0	# Biologia e fisiologia
+085900			0	0	0	1	0	0	0	0	0	# Chimica Generale
+089234			0	0	0	1	0	0	0	0	0	# Identificazione dei modelli e analisi dei dati
+088767			0	0	0	1	0	0	0	0	0	# Identificazione dei modelli e analisi dei dati 1
+088782			0	0	0	1	0	0	0	0	0	# Metodi matematici per l'ingegneria
+085782			0	0	0	1	0	0	0	0	0	# Segnali per le telecomunicazioni
+
+# INT2 Table
+095901			0	0	0	0	1	0	0	0	0	# ICT for control systems engineering
+089235			0	0	0	0	1	0	0	0	0	# Deontologia ed etica delle tecnologie dell'informazione
+089174			0	0	0	0	1	0	0	0	0	# Economia dei servizi e delle reti 1
+089010			0	0	0	0	1	0	0	0	0	# Sistemi di acquisizione dati
+085901			0	0	0	0	1	0	0	0	0	# Automazione industriale
+088805			0	0	0	0	1	0	0	0	0	# Fisica tecnica
+090940			0	0	0	0	1	0	0	0	0	# Informatica e diritto
+088804			0	0	0	0	1	0	0	0	0	# Meccanica (per ing. informatica)
+085899			0	0	0	0	1	0	0	0	0	# Misure
+
+# MAT Table
+088976			0	0	0	0	0	1	0	0	0	# Game theory
+089076			0	0	0	0	0	1	0	0	0	# Complementi di ricerca operativa
+089187			0	0	0	0	0	1	0	0	0	# Ottimizzazione discreta
+
+# TABA Table
+095903			0	0	0	0	0	0	1	0	0	# Computer security
+089214			0	0	0	0	0	0	1	0	0	# Artificial intelligence
+090950			0	0	0	0	0	0	1	0	0	# Distributed systems
+095905			0	0	0	0	0	0	1	0	0	# Embedded systems 1
+089216			0	0	0	0	0	0	1	0	0	# Soft computing
+089202			0	0	0	0	0	0	1	0	0	# Technologies for information systems
+091023			0	0	0	0	0	0	1	0	0	# Business information systems 1
+090874			0	0	0	0	0	0	1	0	0	# Business information systems 2
+095941			0	0	0	0	0	0	1	0	0	# Digital systems design methodologies 1
+095940			0	0	0	0	0	0	1	0	0	# Digital systems design methodologies 2
+088882			0	0	0	0	0	0	1	0	0	# Formal methods for concurrent and real-time systems (UIC 545)
+089185			0	0	0	0	0	0	1	0	0	# High performance processors and systems (UIC 569)
+095943			0	0	0	0	0	0	1	0	0	# Principles of programming languages
+089181			0	0	0	0	0	0	1	0	0	# Theoretical computer science
+
+# TABB Table
+094744			0	0	0	0	0	0	0	1	0	# Advanced user interfaces: interaction
+094746			0	0	0	0	0	0	0	1	0	# Advanced user interfaces: technology
+089169			0	0	0	0	0	0	0	1	0	# Autonomous agents and multiagent systems
+095944			0	0	0	0	0	0	0	1	0	# Bioinformatics and computational biology
+090945			0	0	0	0	0	0	0	1	0	# Computer systems performance evaluation
+094743			0	0	0	0	0	0	0	1	0	# Data management for the web
+093212			0	0	0	0	0	0	0	1	0	# Design and implementation of mobile applications
+093216			0	0	0	0	0	0	0	1	0	# Distributed software development
+095945			0	0	0	0	0	0	0	1	0	# ICT for health care
+089166			0	0	0	0	0	0	0	1	0	# Image analysis
+090931			0	0	0	0	0	0	0	1	0	# Middleware technologies for distributed systems
+089175			0	0	0	0	0	0	0	1	0	# Videogame design and programming
+095946			0	0	0	0	0	0	0	1	0	# Advanced algorithms and parallel programming
+090957			0	0	0	0	0	0	0	1	0	# Code transformation and optimization
+091316			0	0	0	0	0	0	0	1	0	# Cognitive robotics
+090958			0	0	0	0	0	0	0	1	0	# Computer graphics
+095947			0	0	0	0	0	0	0	1	0	# Cryptography and architectures for computer security
+089167			0	0	0	0	0	0	0	1	0	# Data mining and text mining (UIC 583)
+090955			0	0	0	0	0	0	0	1	0	# Dependable systems
+089318			0	0	0	0	0	0	0	1	0	# Hypermedia applications (web and multimedia)
+089012			0	0	0	0	0	0	0	1	0	# Knowledge engineering
+093206			0	0	0	0	0	0	0	1	0	# Multidisciplinary project
+090952			0	0	0	0	0	0	0	1	0	# Pervasive data management
+090951			0	0	0	0	0	0	0	1	0	# Philosophical issues of computer science
+095948			0	0	0	0	0	0	0	1	0	# Process and service design
+089013			0	0	0	0	0	0	0	1	0	# Robotics (5 CFU)
+093217			0	0	0	0	0	0	0	1	0	# Robotics and design
+
+# TEL Table
+093269			0	0	0	0	0	0	0	0	1	# Discrete mathematics
+093735			0	0	0	0	0	0	0	0	1	# Graph optimization
+089073			0	0	0	0	0	0	0	0	1	# Internet of things
+089043			0	0	0	0	0	0	0	0	1	# Wireless networks
+091036			0	0	0	0	0	0	0	0	1	# Multimedia internet applications
+091034			0	0	0	0	0	0	0	0	1	# Wireless internet
+091035			0	0	0	0	0	0	0	0	1	# Multimedia internet
+
+# DOT Table
+093547			0	0	1	0	0	0	0	0	0	# Advanced information systems
+092100			0	0	1	0	0	0	0	0	0	# Advanced topics in computer security
+087970			0	0	1	0	0	0	0	0	0	# Algorithmic game theory
+087971			0	0	1	0	0	0	0	0	0	# Automata theory, program analysis and model checking
+090750			0	0	1	0	0	0	0	0	0	# Cloud computing from a software engineering perspective
+090751			0	0	1	0	0	0	0	0	0	# From reconfigurable hardware to self-adaptive computer architectures
+084966			0	0	1	0	0	0	0	0	0	# Genetic algorithms and other evolutionary techniques
+077685			0	0	1	0	0	0	0	0	0	# Intelligent multiagents systems
+093544			0	0	1	0	0	0	0	0	0	# Introduction to mobile application development
+093548			0	0	1	0	0	0	0	0	0	# Modeling time in computing
+077803			0	0	1	0	0	0	0	0	0	# Recommender systems
+093546			0	0	1	0	0	0	0	0	0	# Self-adaptive software systems
+093545			0	0	1	0	0	0	0	0	0	# Stream and complex event processing
+;

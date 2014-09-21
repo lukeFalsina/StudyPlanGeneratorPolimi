@@ -1,0 +1,5 @@
+model study_plan.mod;
+data study_plan_standard_eng_computing_systems.dat;
+option solver lpsolve;
+solve;
+display x;

@@ -1,0 +1,103 @@
+088983 # 1 # 5  # 1 # INT1 # Foundations of operations research
+089182 # 1 # 5  # 1 # TABA # Formal languages and compilers
+089183 # 1 # 5  # 1 # TABA # Data bases 2
+089184 # 1 # 5  # 1 # TABA # Software engineering 2
+088949 # 1 # 5  # 2 # TABA # Advanced computer architectures
+089165 # 1 # 5  # 2 # TABA # Computer security
+095898 # 1 # 5  # 2 # TABA # Computing infrastructures
+090914 # 1 # 5	# 1 # AUT  # Control of industrial robots
+093060 # 1 # 5	# 1 # AUT  # Safety in automation systems
+096129 # 1 # 10	# 2 # AUT  # Advanced and multivariable control
+093062 # 1 # 5	# 2 # AUT  # Automation and control in vehicles
+090916 # 1 # 5	# 2 # AUT  # Automation of energy systems
+090915 # 1 # 5	# 2 # AUT  # Production systems control
+088869 # 0 # 5	# 2 # AUT  # Tecniche e strumenti di simulazione
+085813 # 0 # 10	# 1 # BIO  # Metodi e applicazioni di sanità digitale
+096281 # 1 # 10	# 2 # BIO  # Biomedical signal processing and medical images
+096260 # 1 # 10	# 2 # BIO  # Technologies for sensors and clinical instrumentation
+080931 # 1 # 5	# 1 # INT1 # Algebra and mathematical logic
+089154 # 1 # 5	# 1 # INT1 # Calcolo scientifico per l'informatica
+088745 # 1 # 10	# 1 # INT1 # Model identification and data analysis
+089180 # 1 # 5	# 1 # INT1 # Numerical analysis
+089194 # 0 # 5	# 1	# INT1 # Complessità nei sistemi e nelle reti
+091021 # 0 # 5	# 1	# INT1 # Logica e algebra 2
+088877 # 0 # 5	# 1	# INT1 # Teoria dei sistemi (dinamica non lineare)
+060001 # 0 # 10	# 2	# INT1 # Biologia e fisiologia
+085900 # 0 # 5	# 2	# INT1 # Chimica generale
+089234 # 0 # 10	# 2	# INT1 # Identificazione dei modelli e analisi dei dati
+088767 # 0 # 5	# 2	# INT1 # Identificazione dei modelli e analisi dei dati 1
+088782 # 0 # 5	# 2	# INT1 # Metodi matematici per l'ingegneria
+085782 # 0 # 10	# 2	# INT1 # Segnali per le telecomunicazioni
+095901 # 1 # 5  # 1 # INT2 # ICT for control systems engineering
+089235 # 0 # 5  # 1	# INT2 # Deontologia ed etica delle tecnologie dell'informazione
+089174 # 0 # 5  # 1	# INT2 # Economia dei servizi e delle reti 1
+089010 # 0 # 5  # 1	# INT2 # Sistemi di acquisizione dati
+085901 # 0 # 5  # 2	# INT2 # Automazione industriale
+088805 # 0 # 5  # 2	# INT2 # Fisica tecnica
+090940 # 0 # 5  # 2	# INT2 # Informatica e diritto
+088804 # 0 # 5  # 2	# INT2 # Meccanica (per ing. informatica)
+085899 # 0 # 5  # 2	# INT2 # Misure
+088976 # 1 # 5	# 1	# MAT  # Game theory
+089076 # 0 # 5  # 2	# MAT  # Complementi di ricerca operativa
+089187 # 0 # 5  # 2	# MAT  # Ottimizzazione discreta
+095903 # 1 # 5  # 1	# TABA # Advanced operating systems
+089214 # 1 # 5  # 1	# TABA # Artificial intelligence
+090950 # 1 # 5  # 1	# TABA # Distributed systems
+095905 # 1 # 5  # 1	# TABA # Embedded systems 1
+089216 # 1 # 5  # 1	# TABA # Soft computing
+089202 # 1 # 5  # 1	# TABA # Technologies for information systems
+091023 # 1 # 5  # 2	# TABA # Business information systems 1
+090874 # 1 # 5  # 2	# TABA # Business information systems 2
+095941 # 1 # 5  # 2	# TABA # Digital systems design methodologies 1
+095940 # 1 # 5  # 2	# TABA # Digital systems design methodologies 2
+088882 # 1 # 5  # 2	# TABA # Formal methods for concurrent and real-time systems (UIC 545)
+089185 # 1 # 5  # 2	# TABA # High performance processors and systems (UIC 569)
+095943 # 1 # 5  # 2	# TABA # Principles of programming languages
+089181 # 1 # 5  # 2	# TABA # Theoretical computer science
+094744 # 1 # 5  # 1 # TABB # Advanced user interfaces: interaction
+094746 # 1 # 5  # 1 # TABB # Advanced user interfaces: technology
+089169 # 1 # 5  # 1 # TABB # Autonomous agents and multiagent systems
+095944 # 1 # 5  # 1 # TABB # Bioinformatics and computational biology
+090945 # 1 # 5  # 1 # TABB # Computer systems performance evaluation
+094743 # 1 # 5  # 1 # TABB # Data management for the web
+093212 # 1 # 5  # 1 # TABB # Design and implementation of mobile applications
+093216 # 1 # 5  # 1 # TABB # Distributed software development
+095945 # 1 # 5  # 1 # TABB # ICT for health care
+089166 # 1 # 5  # 1 # TABB # Image analysis
+090931 # 1 # 5  # 1 # TABB # Middleware technologies for distributed systems
+089175 # 1 # 5  # 1 # TABB # Videogame design and programming
+095946 # 1 # 5  # 2 # TABB # Advanced algorithms and parallel programming
+090957 # 1 # 5  # 2 # TABB # Code transformation and optimization
+091316 # 1 # 5  # 2 # TABB # Cognitive robotics
+090958 # 1 # 5  # 2 # TABB # Computer graphics
+095947 # 1 # 5  # 2 # TABB # Cryptography and architectures for computer security
+089167 # 1 # 5  # 2 # TABB # Data mining and text mining (UIC 583)
+090955 # 1 # 5  # 2 # TABB # Dependable systems
+089318 # 1 # 5  # 2 # TABB # Hypermedia applications (web and multimedia)
+089012 # 1 # 5  # 2 # TABB # Knowledge engineering
+093206 # 1 # 5  # 2 # TABB # Multidisciplinary project
+090952 # 1 # 5  # 2 # TABB # Pervasive data management
+090951 # 1 # 5  # 2 # TABB # Philosophical issues of computer science
+095948 # 1 # 5  # 2 # TABB # Process and service design
+089013 # 1 # 5  # 2 # TABB # Robotics (5 CFU)
+093217 # 1 # 5  # 2 # TABB # Robotics and design
+093269 # 1 # 5	# 1 # TEL  # Discrete mathematics
+093735 # 1 # 5	# 1 # TEL  # Graph optimization
+089073 # 1 # 5	# 2 # TEL  # Internet of things
+089043 # 1 # 10	# 2 # TEL  # Wireless networks
+091036 # 1 # 5	# 2 # TEL  # Multimedia internet applications
+091034 # 1 # 5	# 2 # TEL  # Wireless internet
+091035 # 1 # 10	# 2 # TEL  # Multimedia internet
+093547 # 1 # 5  # 2 # DOT  # Advanced information systems
+092100 # 1 # 5  # 2 # DOT  # Advanced topics in computer security
+087970 # 1 # 5  # 2 # DOT  # Algorithmic game theory
+087971 # 1 # 5  # 2 # DOT  # Automata theory, program analysis and model checking
+090750 # 1 # 5  # 2 # DOT  # Cloud computing from a software engineering perspective
+090751 # 1 # 5  # 2 # DOT  # From reconfigurable hardware to self-adaptive computer architectures
+084966 # 1 # 5  # 2 # DOT  # Genetic algorithms and other evolutionary techniques
+077685 # 1 # 5  # 2 # DOT  # Intelligent multiagents systems
+093544 # 1 # 5  # 2 # DOT  # Introduction to mobile application development
+093548 # 1 # 5  # 2 # DOT  # Modeling time in computing
+077803 # 1 # 5  # 2 # DOT  # Recommender systems
+093546 # 1 # 5  # 2 # DOT  # Self-adaptive software systems
+093545 # 1 # 5  # 2 # DOT  # Stream and complex event processing
